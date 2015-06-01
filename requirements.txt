@@ -1,0 +1,4 @@
+# Use PIP to install requirements.
+django-cities-tiny
+django-phonenumber-field
+django-clever-selects

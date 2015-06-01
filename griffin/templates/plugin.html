@@ -1,0 +1,5 @@
+<h1>Resume {{ instance.resume.pk }}</h1>
+
+{% for e in in instance.resume.education %}
+<p> I attended {{ e.corporate_entity.name }} </p>
+{% endfor %}

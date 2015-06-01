@@ -1,0 +1,12 @@
+*.pyc
+branches
+*.egg-info
+*.kdev4
+*.vim
+*.swp
+refs
+objects
+info
+hooks
+HEAD
+MANIFEST

@@ -1,0 +1,4 @@
+span.griffinTag#{{ skill.css_name }} {
+    font-color: {{ skill.color }} ;
+    text-size: {{ skill.get_text_size }} ;
+}
