@@ -45,7 +45,7 @@ class Attendance(PolymorphicModel):
 
     """
 
-    resume = models.ForeignKey('Resume', related_query_name='attendance')
+    resume = models.ForeignKey('Resume')
 
     title = models.CharField(max_length=1000, blank=True, null=True)
     duties = models.TextField(blank=True, null=True)

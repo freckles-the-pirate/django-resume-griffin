@@ -48,6 +48,14 @@ class Resume(models.Model):
                     all_skills.append(skill)
         return all_skills
     
+    def all_goblin_projects(self):
+        from griffin.models.attendance import GoblinProject
+        return self.attendance_set.instance_of(GoblinProject)
+    
+    def all_projects(self):
+        from griffin.models.attendance import Project
+        return self.attendance_set.instance_of(Project)
+    
     def get_absolute_url(self):
         return '/resume/%d'%self.pk
 
