@@ -4,6 +4,7 @@ from django.utils.translation import ugettext_lazy as _
 from django.utils.safestring import mark_safe as ms
 
 from griffin.models import resume
+from griffin.models.resume import Resume
 
 import logging
 logger = logging.getLogger('griffin')
@@ -40,7 +41,7 @@ class DownloadFormat(models.Model):
         verbose_name_plural = "Download Formats"
 
 class ResumeDownload(models.Model):
-    resume = models.ForeignKey(resume.Resume)
+    resume = models.ForeignKey('Resume')
     format = models.ForeignKey('DownloadFormat')
     resume_file = models.FileField(
             help_text=_("A file to use for downloading. If not found, then " +

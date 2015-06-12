@@ -21,6 +21,9 @@ from django.test import Client
 from django.core.urlresolvers import reverse
 from asena import models as asena_models
 
+from goblin.models import Project as GProject
+from goblin.models import PublishStatus
+
 import os
 RESUME_FILE=os.path.abspath(
     os.path.join(
@@ -47,6 +50,17 @@ class TestViews(unittest.TestCase):
         
         self.resume = Resume.objects.create(applicant=self.applicant,
                 objective="To test a resume!")
+        
+        
+        self.resume.attendance_set.add(
+            GoblinProject.objects.create(
+                resume=self.resume,
+                project = GProject.objects.create(name="Fancy Project",
+                    description="A fancy project",
+                    slug='fancy',
+                    status=PublishStatus.objects.create(status="Public"),),
+            ),
+        )
         
         self.format_html = DownloadFormat.objects.create(
                 description='HTML',

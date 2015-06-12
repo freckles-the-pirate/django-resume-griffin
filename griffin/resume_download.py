@@ -41,6 +41,7 @@ def write_rst(request, rst_template, context, filename=None):
         rst_content = html.clean_html(t.render(Context(context)))
         logger.debug("Writing %s bytes to %s"%(len(rst_content),
             destination_rst))
+        logger.debug("RST content:\n%s"%rst_content)
         try:
             f.write(rst_content)
         except UnicodeEncodeError as e:
